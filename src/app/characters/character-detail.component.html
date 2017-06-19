@@ -1,0 +1,24 @@
+<md-card class="character-card">
+  <md-card-header>
+    <div md-card-avatar class="character-card-avatar" [style.background-image]="'url(' + character.avatar + ')'"></div>
+    <md-card-title>{{character.name}}</md-card-title>
+    <md-card-subtitle>{{character.gender}}</md-card-subtitle>
+  </md-card-header>
+  <img md-card-image [src]="character.img">
+  <md-card-content style="display: flex;justify-content:space-between">
+    <div >
+      <p>Height: {{character.height}}</p>
+      <p>Mass: {{character.mass}}</p>
+      <p>Hair Color: {{character.hair_color}}</p>
+      <p>Skin Color: {{character.skin_color}}</p>
+      <p>Eye Color: {{character.eye_color}}</p>
+      <p>Birth Year: {{character.birth_year}}</p>
+    </div>
+    <div>
+      <force md-line [forceStrength]="character.force" [iconSize]="''"></force>
+    </div>
+  </md-card-content>
+  <md-card-actions style="display: flex;justify-content:flex-end">
+    <button md-button (click)="onBack()"><md-icon>chevron_left</md-icon> BACK</button>
+  </md-card-actions>
+</md-card>

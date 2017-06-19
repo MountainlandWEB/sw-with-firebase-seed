@@ -1,0 +1,17 @@
+<md-toolbar color="primary">
+  <button md-button [routerLink]="['/home']">
+    <span class="menu-item">{{title}}</span>
+  </button>
+  <button md-button [routerLink]="['/home']">
+    <span class="menu-item">Home</span>
+  </button>
+  <button md-button [routerLink]="['/characters']">
+    <span class="menu-item">Characters</span>
+  </button>
+  <span class="example-fill-remaining-space"></span>
+  <button md-button (click)="authService.logout()" *ngIf="authService.isAuthenticated">
+    <span class="menu-item">Logout</span>
+  </button>
+</md-toolbar>
+
+<router-outlet></router-outlet>

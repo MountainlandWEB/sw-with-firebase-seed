@@ -1,0 +1,38 @@
+<md-sidenav-container>
+  <md-sidenav mode="side" opened="true" style="width: 320px">
+    <div class="my-content">
+      <md-toolbar>
+        <md-input-container class="full-width space-top">
+          <input mdInput placeholder="Filter" [(ngModel)]="charactersFilterBy">
+        </md-input-container>
+      </md-toolbar>
+      <md-toolbar>
+        <md-select class="full-width sort-select" [(ngModel)]="charactersSortBy" placeholder="Sort">
+          <md-option *ngFor="let sortOption of sortOptions" [value]="sortOption">{{sortOption}}</md-option>
+        </md-select>
+      </md-toolbar>
+
+      <md-list-item class="button-container">
+        <button md-raised-button color="background" (click)="reset()">
+    <span>Reset</span>
+  </button>
+        <button md-raised-button color="accent" (click)="toggleDetails()">
+    <span>{{showDetails ? 'Hide' : 'Show'}} Details</span>
+  </button>
+      </md-list-item>
+
+      <md-list *ngIf="characters">
+        <md-list-item *ngFor="let character of characters | characterListFilter: charactersFilterBy | characterListSort: charactersSortBy"
+          class="character" [routerLink]="['/character', character.id]">
+          <img md-list-avatar [src]="character.avatar" [title]="character.name | lowercase">
+          <h3 md-line> {{character.name | uppercase}} </h3>
+          <div md-line *ngIf="showDetails">
+            <span> {{character.gender}} </span>
+            <span class="demo-2"> -- {{character.birth_year}} </span>
+            <force md-line [forceStrength]="character.force" [iconSize]="'small'" (forceStrengthClicked)="onForceStrengthClicked($event)"></force>
+          </div>
+        </md-list-item>
+      </md-list>
+    </div>
+  </md-sidenav>
+</md-sidenav-container>

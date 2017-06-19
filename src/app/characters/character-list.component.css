@@ -1,0 +1,12 @@
+.button-container {
+    display: flex;
+    padding-top: 10px;
+    justify-content: center;
+}
+.space-top {
+    margin-top: 10px;
+}
+.character {
+    cursor: pointer;
+}
+

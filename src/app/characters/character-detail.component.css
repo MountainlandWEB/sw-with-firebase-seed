@@ -1,0 +1,7 @@
+.character-card {
+  width: 500px;
+}
+
+.character-card-avatar {
+  background-size: cover;
+}
